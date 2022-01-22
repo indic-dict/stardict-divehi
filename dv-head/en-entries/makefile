@@ -2,7 +2,7 @@ STARDICT_TOOLS_DIR=~/stardict/tools/src/
 DICT_TOOLS_BIN_BASH=~/dict-tools/bin/bash
 
 # Let the URL not end with /.
-URL=https://github.com/indic-dict/stardict-divedv/raw/gh-pages/dv-head/$(shell pwd|sed -e s/.*[/]//)/tars
+URL=https://github.com/indic-dict/stardict-divehi/raw/gh-pages/dv-head/$(shell pwd|sed -e s/.*[/]//)/tars
 
 # make all DICTS=xyz
 DICTS=.*
@@ -16,10 +16,6 @@ final_babylon:
 
 stardict:
 	bash $(DICT_TOOLS_BIN_BASH)/tsv_to_stardict.sh DICTS=$(DICTS)
-
-	
-tars:
-	bash $(DICT_TOOLS_BIN_BASH)/make_tarballs.sh https://github.com/indic-dict/stardict-divedv/raw/gh-pages/$(shell pwd|sed -e s/.*stardict-[^/]*[/]//)/tars DICTS=$(DICTS)
 
 full:
 	bash $(DICT_TOOLS_BIN_BASH)/full_build.sh $(URL) DICTS=$(DICTS) GITHUB_TOKEN=$(GITHUB_TOKEN)
